@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "5ecc",
+      "firstName": "ders",
+      "lastName": "hocası",
+      "profession": "Yazılım",
+      "salary": "10000"
+    },
+    {
+      "id": "90f4",
+      "firstName": "halil",
+      "lastName": "ciritci",
+      "profession": "subay",
+      "salary": "5"
+    },
+    {
+      "id": "422f",
+      "firstName": "test2",
+      "lastName": "test3",
+      "profession": "yzl",
+      "salary": "4"
+    }
+  ]
+}
