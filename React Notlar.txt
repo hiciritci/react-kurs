@@ -1,0 +1,11 @@
+--- Ctrl C uygulamayı kapat.
+
+
+json-server " Tüm backend işlemleri için hazır kütüphane."
+npm install -g json-server
+
+db.json oluşturulur. buraya dbmiz oluşturlabilir.
+ json-server -p 8000 db.json
+
+
+npm install react-router-dom ///bu kütüphane ile dom elemnetleri yönetilir. Adres çağrırılır nereye gitmesini bilir.
