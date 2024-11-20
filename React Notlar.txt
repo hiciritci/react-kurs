@@ -9,3 +9,6 @@ db.json oluşturulur. buraya dbmiz oluşturlabilir.
 
 
 npm install react-router-dom ///bu kütüphane ile dom elemnetleri yönetilir. Adres çağrırılır nereye gitmesini bilir.
+
+
+useEfettc dispact useSelector ,
