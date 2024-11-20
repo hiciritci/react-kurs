@@ -1,5 +1,17 @@
 # React Eğitim İçeriği ve Ders Programı
 
+## 19.11.2024
+- [x] proxy
+- [x] State Management
+	- [x] Context API
+		- [x] [ContextName].Provider
+		- [x] React Hooks
+			- [x] createContext
+			- [x] useContext	
+	- [x] Zustand
+		- [x] create
+		- [x] devtool
+
 ## 18.11.2024
 - [x] SPA Nedir?
 - [x] React nedir?
@@ -26,7 +38,6 @@
 	- [ ] Hooks
 		- [ ] useNavigate
 		- [ ] useParams
-	- [ ] Navigate
 - [x] Router (React Router yeni)
 	- [x] RouterProvider
 	- [x] Data Router
@@ -40,16 +51,8 @@
 - [x] React Hooks
 	- [x] useEffect
 
-## Concepts
-- [ ] proxy
-
 ## State Management
-- [ ] State Management
-	- [ ] Context API
-		- [ ] [ContextName].Provider
-		- [ ] React Hooks
-			- [ ] createContext
-			- [ ] useContext
+- [x] State Management
 	- [ ] Redux Toolkit
 		- [ ] Provider
 		- [ ] createSlice
@@ -58,20 +61,10 @@
 		- [ ] createApi
 		- [ ] Hooks			
 			- [ ] useSelector
-	- [ ] Zustand
-		- [ ] create
-		- [ ] devtool
 
 ## Libraries
 - [ ] React Tanstack Query (Axios, Fetch)
 - [ ] React Formik
-
-## Concepts
-- [ ] Data Router
-	- [ ] createHashRouter
-	- [ ] createMemoryRouter
-	- [ ] createStaticHandler
-	- [ ] createStaticRouter
 
 ## Hooks
 - [ ] React Hooks
@@ -87,21 +80,52 @@
  	- [ ] useInsertionEffect (React 18 ve sonrası)
 
 - [ ] Zod - React Hook Form
+```jsx
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const schema = z.object({
+  name: z.string().min(1, "Ad gerekli."),
+  age: z.number().min(18, "Yaş en az 18 olmalı."),
+});
+
+type FormData = z.infer<typeof schema>;
+
+function App() {
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("name")} />
+      {errors.name && <p>{errors.name.message}</p>}
+      <input type="number" {...register("age")} />
+      {errors.age && <p>{errors.age.message}</p>}
+      <button type="submit">Gönder</button>
+    </form>
+  );
+}
+```
 - [ ] ion18
 - [ ] Prisma ORM + MongoDb + NextAPI Root Full Stack Proje
 
-## Not: 
-Node.JS kurulumu için <a href="https://nodejs.org/en" target="_blank">buraya tıklayın</a>  
+## Dökümantasyonlar:
+- React Documentation için <a href="https://tr.react.dev/" target="_blank">buraya tıklayın</a>
+- React Router için <a href="https://reactrouter.com/en/main" target="_blank">buraya tıklayın</a>
+- React Zustand için <a href="https://zustand-demo.pmnd.rs/" target="_blank">buraya tıklayın</a>
+- React Redux için <a href="https://react-redux.js.org/" target="_blank">buraya tıklayın</a>
+- React Tanstack Query için <a href="https://tanstack.com/query/latest" target="_blank">buraya tıklayın</a>
+- React Formik için <a href="https://formik.org/" target="_blank">buraya tıklayın</a>
+- React Hook Form için <a href="https://react-hook-form.com/" target="_blank">buraya tıklayın</a>
 
-React Documentation için <a href="https://tr.react.dev/" target="_blank">buraya tıklayın</a>  
-
-React Router için <a href="https://reactrouter.com/en/main" target="_blank">buraya tıklayın</a>  
-
-React Redux için <a href="https://react-redux.js.org/" target="_blank">buraya tıklayın</a>  
-
-React Formik için <a href="https://formik.org/" target="_blank">buraya tıklayın</a>
-
-React Tanstack Query için <a href="https://tanstack.com/query/latest" target="_blank">buraya tıklayın</a>
+## Kurulumlar
+Node.JS kurulumu için <a href="https://nodejs.org/en" target="_blank">buraya tıklayın</a>
 
 CLI komutları için Powershell güvenlik iznini değiştirme
 ```powershel
@@ -118,14 +142,34 @@ Vite js ile React projesi oluşturma
 npm create vite@latest my-react-app -- --template react-ts
 ```
 
+Zustand
+```powershell
+npm install zustand
+```
+
 Redux
 ```powershell
 npm install @reduxjs/toolkit react-redux
 ```
 
-Zustand
+Tanstack
 ```powershell
-npm install zustand
+npm i @tanstack/react-query
+```
+
+Formik
+```powershell
+npm install formik
+# For validation
+npm install yup
+```
+
+React Hook Form
+```powershell
+npm install react-hook-form
+# For validation
+npm install zod
+npm install @hookform/resolvers
 ```
 
 proxy

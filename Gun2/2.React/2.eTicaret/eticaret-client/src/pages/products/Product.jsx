@@ -9,6 +9,9 @@ function Product(){
 	const [orgProducts, setOrgProducts] = useState([]);
 
 	const navigate = useNavigate();
+	
+	
+
 
 	async function getAll(){
 		try {

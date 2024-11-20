@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, incrementByValue } from "./features/Counter/count";
 import { changeTheme } from "./features/theme";
 import { getTodo } from "./features/todo";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
     const count = useSelector((store) => store.counter.count);
@@ -23,8 +25,11 @@ function App() {
             {error ? (<p style={{color:"red"}}>{error}</p>) : null}
             <p>Hello World!{count}</p>
             <button onClick={()=> dispatch(changeTheme())}>Change Theme</button>
-            <p>Theme: {themeValue}</p> 
+            <p>Theme: {themeValue}</p>
+
             <button onClick={()=> dispatch(getTodo())}>Get Todo List</button>
+
+
             <Calculate />
         </>
     )
@@ -59,6 +64,26 @@ function Calculate() {
             {checkLoading()}
         </>
 
+    )
+}
+
+async function getTodos() {
+    const result =await axios.get("https://jsonplaceholder.typicode.com/todos");
+    return result.data; 
+}
+
+function Todo() {
+
+    const val=useQuery({
+        queryKey :["todo"],
+        queryFn : getTodos,
+        enabled :false,
+        staleTime:0,
+    });
+    console.log(val);
+    return (
+        <>
+        </>
     )
 }
 
