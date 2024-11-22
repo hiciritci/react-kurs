@@ -42,7 +42,7 @@ export default function ShoppingCart() {
             if (result) {
                 await axios.delete(`${api}/api/shoppingcarts?id=${id}`);
                 getAll();
-                dispatch(decrement())
+                (decrement())
             }
         } catch (error) {
             console.log(error);
