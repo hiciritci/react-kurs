@@ -1,24 +1,25 @@
 'use client'
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation"; 
+import { usePathname, useRouter } from "next/navigation";
 import { useStore } from "../features/use-store";
+import { useEffect } from "react";
 
 export function Header() {
     const router = useRouter();
     const pathName = usePathname();
 
-    const {  count,isLoading, error } = useStore();
-console.log(isLoading,count)
+    const { count, isLoading, error, get } = useStore();
+    console.log(isLoading, count)
 
     function signOut() {
         localStorage.clear();
         router.push("/login");
     }
 
-    // useEffect(()=>{
-    // 	dispatch(getCount());
-    // },[dispatch])
+    useEffect(() => {
+        get();
+    }, [])
 
     return (
         <div className="container">
