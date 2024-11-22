@@ -12,3 +12,7 @@ npm install react-router-dom ///bu kütüphane ile dom elemnetleri yönetilir. A
 
 
 useEfettc dispact useSelector ,
+
+
+nextjs de zustand kütüphanesi --force ile yükneliyor şimdilik.
+
