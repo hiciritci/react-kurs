@@ -1,4 +1,5 @@
 'use client'
+
 import { api } from "@/utilities/contants";
 import { formatCurrency } from "@/utilities/format";
 import axios from "axios";
@@ -21,7 +22,6 @@ export default function Orders(){
 
 		return () => {
 			setOrders([])
-        
 		}
 	}, []);	
 

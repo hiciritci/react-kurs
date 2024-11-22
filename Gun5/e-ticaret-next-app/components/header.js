@@ -46,12 +46,12 @@ export function Header(){
 									Ana Sayfa
 								</Link>
 							</li>
-							<li className="nav-item">
+							{/* <li className="nav-item">
 								<Link className={pathName=== "/products" ? 'nav-link active' : 'nav-link'} href="/products">
 									<i className="fa-solid fa-box me-1"></i>
 									Ürünler
 								</Link>
-							</li>
+							</li> */}
 							<li className="nav-item">
 								<Link className={pathName==="/orders" ? 'nav-link active' : 'nav-link'} href="/orders">
 									<i className="fa-solid fa-file me-1"></i>
