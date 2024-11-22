@@ -25,7 +25,7 @@ export function Header(){
 			<nav className="navbar navbar-expand-lg bg-body-tertiary">
 				<div className="container-fluid">
 					<Link className="navbar-brand" href="/">
-						TS eTicaret
+						HİC eTicaret
 					</Link>
 					<button
 						className="navbar-toggler"

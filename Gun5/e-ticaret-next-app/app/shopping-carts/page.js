@@ -9,7 +9,7 @@ import { api } from "@/utilities/contants";
 export default function ShoppingCart() {
     const [carts, setCarts] = useState([]);
     const [total, setTotal] = useState(0);
-    const { decrement } = useStore();
+    const { decrement,get } = useStore();
 
     const getAll = async()=> {
         try {
@@ -55,6 +55,7 @@ export default function ShoppingCart() {
             if (result) {
                 await axios.get(`${api}/api/shoppingcarts/pay`);
                 getAll();
+                get();
             }
         } catch (error) {
             console.log(error);
